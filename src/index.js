@@ -1,18 +1,21 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const form = document.getElementById('taskForm');
-  const input = document.getElementById('taskInput');
-  const list = document.getElementById('taskList');
+  // CRITICAL: Use the exact IDs from the test requirements
+  const form = document.getElementById('create-task-form');
+  const taskInput = document.getElementById('new-task-description');
+  const taskList = document.getElementById('tasks');
 
   form.addEventListener('submit', function(e) {
     e.preventDefault(); // prevent page reload
 
-    const task = input.value.trim();
-    if (!task) return; // ignore empty
+    const taskText = taskInput.value.trim();
+    if (!taskText) return; // ignore empty input
 
-    const li = document.createElement('li');
-    li.textContent = task;
-    list.appendChild(li);
+    // Create new task element - MUST be an li element
+    const newTask = document.createElement('li');
+    newTask.textContent = taskText;
+    taskList.appendChild(newTask);
 
-    input.value = ''; // clear input
+    // Clear the input field
+    taskInput.value = '';
   });
 });
