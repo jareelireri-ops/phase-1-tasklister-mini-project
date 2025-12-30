@@ -1,8 +1,10 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const form = document.getElementById('taskForm');
-  const input = document.getElementById('taskInput');
-  const list = document.getElementById('taskList');
+// Grab the form, input, and list elements
+const form = document.getElementById('taskForm');
+const input = document.getElementById('taskInput');
+const list = document.getElementById('taskList');
 
+// Make sure elements exist before adding listener
+if (form && input && list) {
   form.addEventListener('submit', function(e) {
     e.preventDefault(); // prevent page reload
 
@@ -13,6 +15,6 @@ document.addEventListener('DOMContentLoaded', () => {
     li.textContent = task;
     list.appendChild(li);
 
-    input.value = ''; // clear input
+    input.value = ''; // clear input field
   });
-});
+}
